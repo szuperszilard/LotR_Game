@@ -5,10 +5,10 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
-import lotr.DATA.LotR;
-import lotr.DATA.User;
-import lotr.LOGIC.DB_Handler;
-import lotr.LOGIC.ICommunication;
+import lotr.DataConstructs.User;
+import lotr.Logic.DB_Handler;
+import lotr.Logic.ICommunication;
+import lotr.Logic.LotR;
 
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;

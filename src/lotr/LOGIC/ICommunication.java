@@ -1,4 +1,4 @@
-package lotr.LOGIC;
+package lotr.Logic;
 
 public interface ICommunication{
 
