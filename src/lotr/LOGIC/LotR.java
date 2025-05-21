@@ -9,6 +9,7 @@ import lotr.DataConstructs.User;
 import lotr.UI.Frame_MainWindow;
 import lotr.UI.Panel_Login;
 import lotr.UI.Panel_MenuContainer;
+import lotr.UI.Panel_Rooms;
 
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
@@ -66,9 +67,12 @@ public class LotR {
 	     
 	        Panel_MenuContainer menuContainerPanel = new Panel_MenuContainer(frame);
 	        Panel_Login loginPanel = new Panel_Login(frame, this);
+	        Panel_Rooms roomsPanel = new Panel_Rooms();
 	      
 	        frame.getmmPanel().add(menuContainerPanel);    
 	        frame.getmmPanel().add(loginPanel);
+	        frame.getmmPanel().add(roomsPanel);
+	       
 	              
 	        loginPanel.setICommunication(new ICommunication() {
 				@Override
@@ -79,6 +83,18 @@ public class LotR {
 					}				
 				}
 			});	
+	        menuContainerPanel.setICommunication(new ICommunication() {
+				@Override
+				public void somethingHappened(String message) {
+					
+					if(message.equals("play")) {															
+						roomsPanel.setVisible(true);							
+					}else if(message.equals("back")){
+						roomsPanel.setVisible(false);
+					}
+				}
+			});	
+	        
 		} catch (SQLException e) {
 			JOptionPane.showMessageDialog(frame, "Failed to connect to server.", "Failed", JOptionPane.ERROR_MESSAGE);
 			System.out.println(e.getMessage());

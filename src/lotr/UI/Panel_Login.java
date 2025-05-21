@@ -68,8 +68,7 @@ public class Panel_Login extends JPanel{
 		btnConnect.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {				
 				try {
-					
-					
+										
 					User.getInstance().setUsername(textField.getText());
 					User.getInstance().setPassword(new String(pwdField.getPassword()));
 					dbHandler.login(User.getInstance());
