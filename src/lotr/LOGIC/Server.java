@@ -25,7 +25,7 @@ public class Server {
 				thread.start();
 			}
 		}catch(IOException e) {
-			
+			System.out.println(e.getMessage());
 		}
 		
 	}
@@ -37,7 +37,7 @@ public class Server {
 				serverSocket.close();
 			}
 		}catch (IOException e) {
-			e.printStackTrace();
+			System.out.println(e.getMessage());
 		}
 	}
 }
