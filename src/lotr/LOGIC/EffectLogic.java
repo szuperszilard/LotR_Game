@@ -5,6 +5,8 @@ import lotr.DataConstructs.Player;
 import lotr.DataConstructs.Realm;
 
 public class EffectLogic {
+	
+
 
 	public static void coins(Player player, int amount) {		
 		player.setCoin(player.getCoin() + amount);
@@ -36,5 +38,13 @@ public class EffectLogic {
 		player.getRaces()[race]++;
 	}
 	
-	
+	public static void qotr(Player player, int count, ICommunication comms) {
+		for(int i = 0; i < count; i ++) {
+			player.addToQotR(1);
+			if(player.getQotR() == 3 || player.getQotR() == 6 || player.getQotR() == 9 || player.getQotR() == 12 || 
+					player.getQotR() == 17 || player.getQotR() == 20 || player.getQotR() == 23 || player.getQotR() == 26) {
+				comms.somethingHappened("quest");
+			}
+		}
+	}
 }

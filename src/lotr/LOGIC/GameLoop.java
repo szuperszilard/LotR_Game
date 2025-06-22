@@ -5,7 +5,7 @@ import lotr.DataConstructs.Game;
 import lotr.DataConstructs.Player;
 import lotr.DataConstructs.RaceChips;
 
-public class GameLoop {
+public class GameLoop implements ICommunication{
 	
 	private Game game;
 	private static Player whoseTurnItIs;	
@@ -46,5 +46,13 @@ public class GameLoop {
 	}
 	public static Player getWhoseTurnItIs() {
 		return whoseTurnItIs;
+	}
+
+
+	@Override
+	public void somethingHappened(String message) {
+		if(message.equals("quest")) {
+			
+		}
 	}
 }

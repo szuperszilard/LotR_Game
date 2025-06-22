@@ -7,7 +7,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 
-import javax.swing.ImageIcon;
+
 
 import lotr.DataConstructs.Card;
 import lotr.DataConstructs.Player;
@@ -19,15 +19,12 @@ public class CardLogic {
 		
 		int[] temporarySkills = player.getSkills();
 		//black, blue, red, purple, green
-		int temporaryCoin = player.getCoin();
-		
+		int temporaryCoin = player.getCoin();		
 		boolean canTake = true;
 		
-		if (!chainingUsed(player, card)) {
-			
+		if (!chainingUsed(player, card)) {			
 			player.setCoin(CheckCost.check(card.getSkillCost(), card.getCoinCost(), player, false));			
-		}	
-		
+		}			
 		return canTake;
 	}
 	
@@ -39,12 +36,11 @@ public class CardLogic {
 			if(player.getChainingSymbols().contains(card.getUsesThisChainingSymbol())) {
 				chainingUsed = true;
 			}
-		}
-		
+		}		
 		return chainingUsed;
 	}
 	
-	public static void executeCard(Player player, Card card) {
+	public static void executeCard(Player player, Card card, GameLoop gl) {
 		
 		switch(card.getColor()) {
 			case "gray" :{
@@ -66,10 +62,10 @@ public class CardLogic {
 				break;
 			}
 			case "blue" :{
+				EffectLogic.qotr(player, card.getEffectCount(), gl);
 				
 			}
-		}
-		
+		}	
 	}
 
 	public static ArrayList<Card> stackToUse(String fileName) throws IOException{

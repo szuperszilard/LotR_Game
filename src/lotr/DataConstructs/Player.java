@@ -15,8 +15,8 @@ public class Player {
 	private int[] raceCards = new int[] {0, 0, 0, 0, 0, 0};
 	// elves, dwarves, hobbits, humans, ents, wizards
 	private int questOfTheRing;
-	private int[] extraSkills; 
-	// 0 double skill card, 1 triple skill card, 2 raceChip
+	private int[] extraSkills = new int[] {0, 0, 0}; 
+	// double skill card, triple skill card, raceChip
 	private boolean usedDoubleThisTurn;
 	private boolean usedTripleThisTurn;
 	private boolean usedRaceSkillChipThisTurn;
@@ -25,7 +25,7 @@ public class Player {
 		
 		if(good) {
 			coin = 3;
-			questOfTheRing = 15;
+			questOfTheRing = 14;
 		}else {
 			coin = 2;
 			questOfTheRing = 0;
@@ -92,6 +92,11 @@ public class Player {
 	public int[] getExtraSkills() {
 		return extraSkills;
 	}
-
+	public void addToQotR(int count) {
+		questOfTheRing += count;
+	}
+	public int getQotR() {
+		return questOfTheRing;
+	}
 
 }

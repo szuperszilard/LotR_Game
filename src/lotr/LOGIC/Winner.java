@@ -5,9 +5,7 @@ import lotr.DataConstructs.Game;
 public class Winner {
 
 	public static boolean check(Game game) {
-		
-		if(game.getSauron().get)
-		
+		// TODO Auto-generated method stub
 		return false;
 	}
 
