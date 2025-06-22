@@ -2,6 +2,8 @@ package lotr.DataConstructs;
 
 public class Realm {
 
+	private int[] powerCost;
+	private int coinCost;
 	private int unitCounter =0;	
 	// negative unitCounter means Sauron units, positive means FotR units
 	private int tower = 0;
