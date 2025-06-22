@@ -6,7 +6,7 @@ import java.util.Set;
 
 public class Shuffler {
 	
-	public <T> ArrayList<T> shuffle(ArrayList<T> toShuffle) {
+	public static <T> ArrayList<T> shuffle(ArrayList<T> toShuffle) {
 		
 		ArrayList<T> shuffledList = new ArrayList<>();
 		Set<T> setOfT = new HashSet<>();

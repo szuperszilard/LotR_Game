@@ -8,58 +8,34 @@ public class Player {
 	private boolean good;
 	// false if Sauron, true if FotR
 	private int coin;
-	private int[] powers = new int[] {0,0,0,0,0};
+	private int[] skills = new int[] {0, 0, 0, 0, 0};
 	//black, blue, red, purple, green
 	private ArrayList<String> chainingSymbols;
-	private boolean haveDoublePowerCard;
-	private boolean haveTriplePowerCard;
-	private boolean haveRacePowerChip;
+	private int towerCounter;
+	private int[] raceCards = new int[] {0, 0, 0, 0, 0, 0};
+	// elves, dwarves, hobbits, humans, ents, wizards
+	private int questOfTheRing;
+	private int[] extraSkills; 
+	// 0 double skill card, 1 triple skill card, 2 raceChip
 	private boolean usedDoubleThisTurn;
 	private boolean usedTripleThisTurn;
-	private boolean usedRacePowerChipThisTurn;
+	private boolean usedRaceSkillChipThisTurn;
 	
-	
-	
-	public boolean usedDoubleThisTurn() {
-		return usedDoubleThisTurn;
-	}
-	public void setUsedDoubleThisTurn(boolean usedDoubleThisTurn) {
-		this.usedDoubleThisTurn = usedDoubleThisTurn;
-	}
-	public boolean usedTripleThisTurn() {
-		return usedTripleThisTurn;
-	}
-	public void setUsedTripleThisTurn(boolean usedTripleThisTurn) {
-		this.usedTripleThisTurn = usedTripleThisTurn;
-	}
-	public boolean usedRacePowerChipThisTurn() {
-		return usedRacePowerChipThisTurn;
-	}
-	public void setUsedRacePowerChipThisTurn(boolean usedRacePowerChipThisTurn) {
-		this.usedRacePowerChipThisTurn = usedRacePowerChipThisTurn;
-		
-	}
-	public boolean hasDoublePowerCard() {
-		return haveDoublePowerCard;
-	}
-	public boolean hasTriplePowerCard() {
-		return haveTriplePowerCard;
-	}
-	public boolean hasRacePowerChip() {
-		return haveRacePowerChip;
-	}
-
-
 	public Player(boolean good) {
 		
 		if(good) {
 			coin = 3;
+			questOfTheRing = 15;
 		}else {
 			coin = 2;
+			questOfTheRing = 0;
 		}	
 		chainingSymbols = new ArrayList<String>();
 	}
 	
+	public int[] getRaces() {
+		return raceCards;
+	}
 		
 	public boolean isGood() {
 		return good;
@@ -73,22 +49,49 @@ public class Player {
 	public int getCoin() {
 		return coin;
 	}	
-	public int[] getPowers() {
-		return powers;
+	public int[] getSkills() {
+		return skills;
 	}
 
-	public void setPowers(int[] powers) {
-		this.powers = powers;
+	public void addSkill(int[] skills, int colorOf) {
+		this.skills = skills;
 	}
 
 	public ArrayList<String> getChainingSymbols() {
 		return chainingSymbols;
 	}
 
-	public void setChainingSymbols(ArrayList<String> chainingSymbols) {
-		this.chainingSymbols = chainingSymbols;
+	public void addChainingSymbol(String symbol) {
+		chainingSymbols.add(symbol);
 	}
-
+	public int getTowerCounter() {
+		return towerCounter;
+	}
+	public void addTowerToCounter() {
+		towerCounter++;
+	}
+	public boolean usedDoubleThisTurn() {
+		return usedDoubleThisTurn;
+	}
+	public void setUsedDoubleThisTurn(boolean usedDoubleThisTurn) {
+		this.usedDoubleThisTurn = usedDoubleThisTurn;
+	}
+	public boolean usedTripleThisTurn() {
+		return usedTripleThisTurn;
+	}
+	public void setUsedTripleThisTurn(boolean usedTripleThisTurn) {
+		this.usedTripleThisTurn = usedTripleThisTurn;
+	}
+	public boolean usedRaceSkillChipThisTurn() {
+		return usedRaceSkillChipThisTurn;
+	}
+	public void setUsedRaceSkillChipThisTurn(boolean usedRaceSkillChipThisTurn) {
+		this.usedRaceSkillChipThisTurn = usedRaceSkillChipThisTurn;
+		
+	}
+	public int[] getExtraSkills() {
+		return extraSkills;
+	}
 
 
 }
