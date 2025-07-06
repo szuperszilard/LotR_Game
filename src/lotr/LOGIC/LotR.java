@@ -7,6 +7,7 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 import lotr.DataConstructs.User;
+import lotr.Logic.network.DB_Handler;
 import lotr.UI.Frame_MainWindow;
 import lotr.UI.Panel_Login;
 import lotr.UI.Panel_MenuContainer;

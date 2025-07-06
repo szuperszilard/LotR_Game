@@ -3,63 +3,51 @@ package lotr.DataConstructs;
 import javax.swing.ImageIcon;
 
 public class Card {
+		
 	
-	private ImageIcon picture;
+	private ImageIcon cover;
 	private int[] skillCost = new int[] {0,0,0,0,0}; 	//black, blue, red, purple, green
-	private boolean chainable;
+	private ImageIcon picture;
 	private String hasChainingSymbol;
 	private String usesThisChainingSymbol;
 	private int coinCost;
 	private String color;
-	private int effectType;
 	private int effectCount;
 	private String additionalInfo;
-	private int[] purpleEffects; // 0 move, 1 -unit, 2 -coin
+	private int discardCost;
 	
-	
-
-	public Card(ImageIcon picture, int[] skillCost, boolean chainable, String hasChainingSymbol,
-				String usesThisChainingSymbol, int coinCost, String color, int effectCount, 
-				int effectType, String additionalInfo, int[] purpleEffects) {
+	// additional info meanings in regards to card color
+	// purple - 0 move, 1 unit, 2 coin
+	// red - realms to choose from
+	// green - 0 elves, 1 dwarves, 2 hobbits, 3 men, 4 ents, 5 wizards
+	// gray - 0 black, 1 blue, 2 red, 3 purple, 4 green
 		
-		this.picture = picture;
+	public Card(ImageIcon cover, int[] skillCost, ImageIcon picture,  String hasChainingSymbol,
+				String usesThisChainingSymbol, int coinCost, String color, int effectCount, 
+				String additionalInfo, int discardCost) {
+		this.cover = cover;
 		this.skillCost = skillCost;
-		this.chainable = chainable;
+		this.picture = picture;
 		this.hasChainingSymbol = hasChainingSymbol;
 		this.usesThisChainingSymbol = usesThisChainingSymbol;
 		this.coinCost = coinCost;
 		this.color = color;
 		this.effectCount = effectCount;
-		this.effectType = effectType;
 		this.additionalInfo = additionalInfo;
-		this.purpleEffects = purpleEffects;
+		this.discardCost = discardCost;
 	}
-	
-	
-	
-	public int getEffectType() {
-		return effectType;
-	}
-
-
 
 	public int getEffectCount() {
 		return effectCount;
 	}
 
-
+	public int getDiscardCost() {
+		return discardCost;
+	}
 
 	public String getAdditionalInfo() {
 		return additionalInfo;
 	}
-
-
-
-	public int[] getPurpleEffects() {
-		return purpleEffects;
-	}
-
-
 
 	public String getColor() {
 		return color;
@@ -89,10 +77,7 @@ public class Card {
 	public void setUsesThisChainingSymbol(String usesThisChainingSymbol) {
 		this.usesThisChainingSymbol = usesThisChainingSymbol;
 	}
-	public boolean chainable() {
-		return chainable;
+	public void setDiscardCost(int discardCost) {
+		this.discardCost = discardCost;
 	}
-	
-	
-
 }

@@ -15,11 +15,12 @@ public class Player {
 	private int[] raceCards = new int[] {0, 0, 0, 0, 0, 0};
 	// elves, dwarves, hobbits, humans, ents, wizards
 	private int questOfTheRing;
-	private int[] extraSkills = new int[] {0, 0, 0}; 
-	// double skill card, triple skill card, raceChip
+	private AllianceTokens_player allianceTokens = new AllianceTokens_player();
+	private int[] extraSkills = new int[] {0, 0};
+	// double skill card, triple skill card
 	private boolean usedDoubleThisTurn;
 	private boolean usedTripleThisTurn;
-	private boolean usedRaceSkillChipThisTurn;
+	private boolean usedSkillAllianceTokenThisTurn;
 	
 	public Player(boolean good) {
 		
@@ -46,21 +47,21 @@ public class Player {
 	public void setCoin(int coin) {
 		this.coin = coin;
 	}
+	public void addCoin(int coin) {
+		this.coin += coin;
+	}
 	public int getCoin() {
 		return coin;
 	}	
 	public int[] getSkills() {
 		return skills;
 	}
-
 	public void addSkill(int[] skills, int colorOf) {
 		this.skills = skills;
 	}
-
 	public ArrayList<String> getChainingSymbols() {
 		return chainingSymbols;
 	}
-
 	public void addChainingSymbol(String symbol) {
 		chainingSymbols.add(symbol);
 	}
@@ -82,12 +83,11 @@ public class Player {
 	public void setUsedTripleThisTurn(boolean usedTripleThisTurn) {
 		this.usedTripleThisTurn = usedTripleThisTurn;
 	}
-	public boolean usedRaceSkillChipThisTurn() {
-		return usedRaceSkillChipThisTurn;
+	public boolean usedSkillAllianceTokenThisTurn() {
+		return usedSkillAllianceTokenThisTurn;
 	}
-	public void setUsedRaceSkillChipThisTurn(boolean usedRaceSkillChipThisTurn) {
-		this.usedRaceSkillChipThisTurn = usedRaceSkillChipThisTurn;
-		
+	public void setUsedSkillAllianceTokenThisTurn(boolean usedSkillAllianceTokenThisTurn) {
+		this.usedSkillAllianceTokenThisTurn = usedSkillAllianceTokenThisTurn;		
 	}
 	public int[] getExtraSkills() {
 		return extraSkills;
@@ -98,5 +98,10 @@ public class Player {
 	public int getQotR() {
 		return questOfTheRing;
 	}
-
+	public AllianceTokens_player getAllianceTokens() {
+		return allianceTokens;
+	}
+	public void setAllianceTokens(AllianceTokens_player allianceTokens) {
+		this.allianceTokens = allianceTokens;
+	}	
 }

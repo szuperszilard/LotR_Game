@@ -3,7 +3,7 @@ package lotr.Logic;
 
 import lotr.DataConstructs.Game;
 import lotr.DataConstructs.Player;
-import lotr.DataConstructs.RaceChips;
+import lotr.DataConstructs.AllianceTokens_player;
 
 public class GameLoop implements ICommunication{
 	
@@ -12,19 +12,19 @@ public class GameLoop implements ICommunication{
 	private static int repeatCounter = 0;
 	
 	
-	
-	private GameLoop() {
+	public GameLoop() {
 		whoseTurnItIs = game.getSauron();
+		play();
 	};
 	
 	
 	private void play() {
 		
-		while(!Winner.check(game)) {
+		while(Winner.getWinner().equals("")) {
 			
 			//stuff
 			
-			RaceChips.check(whoseTurnItIs);
+			
 			
 			
 			
@@ -35,9 +35,11 @@ public class GameLoop implements ICommunication{
 				repeatCounter--;
 			}	
 			whoseTurnItIs.setUsedDoubleThisTurn(false);
-			whoseTurnItIs.setUsedRaceSkillChipThisTurn(false);
+			whoseTurnItIs.setUsedSkillAllianceTokenThisTurn(false);
 			whoseTurnItIs.setUsedTripleThisTurn(false);
 		}
+		
+		
 	}
 
 
@@ -48,11 +50,18 @@ public class GameLoop implements ICommunication{
 		return whoseTurnItIs;
 	}
 
+	public Game getGame() {
+		return game;
+	}
+
 
 	@Override
 	public void somethingHappened(String message) {
+		
 		if(message.equals("quest")) {
-			
+			CheckQuest.check(game);
 		}
 	}
+
+	
 }

@@ -6,9 +6,9 @@ import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
 import lotr.DataConstructs.User;
-import lotr.Logic.DB_Handler;
 import lotr.Logic.ICommunication;
 import lotr.Logic.LotR;
+import lotr.Logic.network.DB_Handler;
 
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;

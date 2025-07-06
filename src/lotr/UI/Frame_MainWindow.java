@@ -12,7 +12,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-import lotr.Logic.DB_Handler;
+import lotr.Logic.network.DB_Handler;
 
 
 public class Frame_MainWindow extends JFrame{
