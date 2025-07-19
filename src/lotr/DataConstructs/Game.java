@@ -25,7 +25,8 @@ public class Game {
 		FotR = new Player(true);
 		cardsOne = CardLogic.stackToUse("D:\\Eclipse\\LotRGame\\LotRpics\\Done\\cards1\\cards1.csv");
 		cardsTwo =  CardLogic.stackToUse("D:\\Eclipse\\LotRGame\\LotRpics\\Done\\cards2\\cards2.csv");
-		cardsThree =  CardLogic.stackToUse("D:\\Eclipse\\LotRGame\\LotRpics\\Done\\cards3\\cards3.csv");		
+		cardsThree =  CardLogic.stackToUse("D:\\Eclipse\\LotRGame\\LotRpics\\Done\\cards3\\cards3.csv");	
+		discard = new ArrayList<>();
 	}
 
 	public Player getSauron() {
@@ -36,6 +37,8 @@ public class Game {
 		return FotR;
 	}
 	
-	
+	public void addToDiscard(Card card) {
+		discard.add(card);
+	}
 
 }

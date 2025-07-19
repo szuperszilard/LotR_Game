@@ -1,7 +1,6 @@
 package lotr.UI;
 
 import java.awt.Graphics;
-import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -16,8 +15,7 @@ import lotr.Logic.ICommunication;
 
 import javax.swing.JScrollPane;
 import javax.swing.JList;
-import javax.swing.JLabel;
-import javax.swing.SwingConstants;
+
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;

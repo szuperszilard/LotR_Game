@@ -9,7 +9,7 @@ public class CheckCost {
 		int[] temporarySkills = player.getSkills();
 		int temporaryCoin = player.getCoin();
 		if(realm) {
-			if(player.getAllianceTokens().getAllianceTokens().contains("LandmarkNoGold")) {
+			if(player.getAllianceTokens().contains("LandmarkNoGold")) {
 				coinCost = 0;
 			}else {
 				coinCost = player.getTowerCounter();
@@ -27,7 +27,7 @@ public class CheckCost {
 						}
 					}
 					if (temporarySkills[i] < skillCost[i]) {
-						if (player.getAllianceTokens().getAllianceTokens().contains("AnySkillToken") && !player.usedSkillAllianceTokenThisTurn()) {
+						if (player.getAllianceTokens().contains("AnySkillToken") && !player.usedSkillAllianceTokenThisTurn()) {
 							temporarySkills[i]++;
 							player.setUsedSkillAllianceTokenThisTurn(true);
 						}
@@ -48,7 +48,7 @@ public class CheckCost {
 						}
 					}
 					if (temporarySkills[i] < skillCost[i]) {
-						if (player.getAllianceTokens().getAllianceTokens().contains("AnySkillToken") && !player.usedSkillAllianceTokenThisTurn()) {
+						if (player.getAllianceTokens().contains("AnySkillToken") && !player.usedSkillAllianceTokenThisTurn()) {
 							temporarySkills[i]++;
 							player.setUsedSkillAllianceTokenThisTurn(true);
 						}

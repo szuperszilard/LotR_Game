@@ -11,6 +11,7 @@ public class Realm {
 	// negative unitCounter means Sauron units, positive means FotR units
 	private int tower;
 	// negative tower means Sauron's tower, positive means FotR's tower
+	private ImageIcon cover;
 	
 	public Realm() {};
 	public Realm(String name, int[] skillCost) {
@@ -40,6 +41,12 @@ public class Realm {
 
 	public void setTower(int tower) {
 		this.tower = tower;
+	}
+	public ImageIcon getPicture() {
+		return picture;
+	}
+	public ImageIcon getCover() {
+		return cover;
 	}
 	
 }

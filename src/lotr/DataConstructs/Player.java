@@ -15,7 +15,7 @@ public class Player {
 	private int[] raceCards = new int[] {0, 0, 0, 0, 0, 0};
 	// elves, dwarves, hobbits, humans, ents, wizards
 	private int questOfTheRing;
-	private AllianceTokens_player allianceTokens = new AllianceTokens_player();
+	private AllianceTokens_ allianceTokens = new AllianceTokens_();
 	private int[] extraSkills = new int[] {0, 0};
 	// double skill card, triple skill card
 	private boolean usedDoubleThisTurn;
@@ -98,10 +98,10 @@ public class Player {
 	public int getQotR() {
 		return questOfTheRing;
 	}
-	public AllianceTokens_player getAllianceTokens() {
-		return allianceTokens;
+	public ArrayList<String> getAllianceTokens() {
+		return allianceTokens.getPlayerAllianceTokens();
 	}
-	public void setAllianceTokens(AllianceTokens_player allianceTokens) {
+	public void setAllianceTokens(AllianceTokens_ allianceTokens) {
 		this.allianceTokens = allianceTokens;
 	}	
 }

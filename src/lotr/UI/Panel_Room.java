@@ -33,6 +33,14 @@ public class Panel_Room extends JPanel{
 		JButton btnStart = new JButton("Start");
 		btnStart.setBounds(1041, 717, 89, 23);
 		add(btnStart);		
+		btnStart.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				comms.somethingHappened("start");
+				
+			}
+		});
 		
 		JButton btnBack = new JButton("Back");
 		btnBack.setBounds(1201, 717, 89, 23);

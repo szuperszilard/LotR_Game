@@ -14,7 +14,12 @@ public class AllianceToken {
 		this.cover = cover;
 	}
 	
-	
+	public ImageIcon getPicture() {
+		return picture;
+	}
+	public ImageIcon getCover() {
+		return cover;
+	}
 	
 	
 }

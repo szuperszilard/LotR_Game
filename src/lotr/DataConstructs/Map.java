@@ -3,6 +3,8 @@ package lotr.DataConstructs;
 
 public class Map {
 	
+	
+	
 	public Map() {
 		
 	}

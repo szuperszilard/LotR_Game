@@ -58,10 +58,9 @@ public class Card {
 	public ImageIcon getPicture() {
 		return picture;
 	}
-	public void setPicture(ImageIcon picture) {
-		this.picture = picture;
+	public ImageIcon getCover() {
+		return cover;
 	}
-	
 	public int[] getSkillCost() {
 		return skillCost;
 	}

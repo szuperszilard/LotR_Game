@@ -10,7 +10,7 @@ public class CLogic_Blue {
 
 	public static void executeBlue(Player player, Card card, GameLoop gl) {
 		EffectLogic.qotr(player, card.getEffectCount(), gl);
-		if(player.getAllianceTokens().getAllianceTokens().contains("BluePlaceUnit")) {
+		if(player.getAllianceTokens().contains("BluePlaceUnit")) {
 			EffectLogic.unitPlace(Prompter.promptForAnyRegion(), player, 1);
 		}
 	}

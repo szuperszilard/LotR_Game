@@ -10,10 +10,10 @@ public class CLogic_Yellow {
 	public static void executeYellow(Player player, Card card, GameLoop gl) {
 		
 		EffectLogic.coins(player, card.getEffectCount());
-		if(player.getAllianceTokens().getAllianceTokens().contains("YellowQotR")) {
+		if(player.getAllianceTokens().contains("YellowQotR")) {
 			EffectLogic.qotr(player, 1, gl);			
 		}
-		if(player.getAllianceTokens().getAllianceTokens().contains("YellowTakeAnotherTrun")) {
+		if(player.getAllianceTokens().contains("YellowTakeAnotherTrun")) {
 			EffectLogic.takeAnotherTurn(player);
 		}
 	}

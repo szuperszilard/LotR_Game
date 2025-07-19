@@ -18,6 +18,8 @@ import lotr.Logic.network.DB_Handler;
 public class Frame_MainWindow extends JFrame{
 
 	private JPanel mmPanel;
+	private String ME = "D:\\Eclipse\\LotRGame\\data\\wp.jpg";
+	private BufferedImage backgroundImage = ImageIO.read(new File(ME));
 	
 	public JPanel getmmPanel() {
 		return mmPanel;
@@ -37,14 +39,14 @@ public class Frame_MainWindow extends JFrame{
 		
 		mmPanel = new JPanel() {
 			
-            private BufferedImage backgroundImage = ImageIO.read(new File("D:\\Eclipse\\LotRGame\\data\\wp.jpg"));
+            
             @Override
             protected void paintComponent(Graphics g) {
                 super.paintComponent(g);
                 if (backgroundImage != null) {
                     g.drawImage(backgroundImage, 0, 0, 
                     		(int)usableScreenArea.getWidth(), 
-                    		(int) usableScreenArea.getHeight()-30, this);
+                    		(int) usableScreenArea.getHeight(), this);
                 }
             }
         };
@@ -54,6 +56,12 @@ public class Frame_MainWindow extends JFrame{
         mmPanel.setBounds(usableScreenArea);
 	}
 	
-	
-
+	public void changeME(String pathToFile) {
+		try {
+			backgroundImage = ImageIO.read(new File(pathToFile));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		mmPanel.repaint();
+	}
 }

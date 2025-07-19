@@ -13,7 +13,7 @@ import lotr.DataConstructs.AllianceToken;
 
 public class AllianceTokenLogic {
 
-	public static ArrayList<AllianceToken> readTokens(String fileName) throws IOException{
+	public static ArrayList<AllianceToken> readTokens(String fileName) {
 		
 		ArrayList<AllianceToken> tokens = new ArrayList<>();
 		try (BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(fileName)))){
@@ -26,6 +26,9 @@ public class AllianceTokenLogic {
 			}	
 		} catch (FileNotFoundException e) {
 			System.out.println("fileNotFound");
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 		return tokens;
 	}	

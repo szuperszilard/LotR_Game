@@ -20,7 +20,7 @@ public class CheckRaces {
 		if(raceCount == 3) {
 			//SHOW TOP OF 3 RACES AND CHOOSE
 		}	
-		if((raceCount == 6) || (raceCount == 5 && player.getAllianceTokens().getAllianceTokens().contains("EagleSymbol"))){
+		if((raceCount == 6) || (raceCount == 5 && player.getAllianceTokens().contains("EagleSymbol"))){
 			Winner.setWinner(player);
 		}
 	}

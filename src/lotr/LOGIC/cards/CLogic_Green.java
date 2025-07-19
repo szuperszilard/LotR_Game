@@ -12,7 +12,7 @@ public class CLogic_Green {
 		
 		EffectLogic.addRace(player, Integer.parseInt(card.getAdditionalInfo()));
 		CheckRaces.checkRaces(player);
-		if(player.getAllianceTokens().getAllianceTokens().contains("GreenTwoMove")) {
+		if(player.getAllianceTokens().contains("GreenTwoMove")) {
 			EffectLogic.unitMove(Prompter.moveFromHere(), Prompter.moveToHere(), player);
 			EffectLogic.unitMove(Prompter.moveFromHere(), Prompter.moveToHere(), player);
 		}

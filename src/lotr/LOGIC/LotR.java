@@ -1,17 +1,17 @@
 package lotr.Logic;
 
-import java.awt.EventQueue;
-import java.awt.Rectangle;
 
-import javax.swing.JFrame;
+import java.awt.EventQueue;
 import javax.swing.JOptionPane;
 
 import lotr.DataConstructs.User;
 import lotr.Logic.network.DB_Handler;
 import lotr.UI.Frame_MainWindow;
+import lotr.UI.Panel_Fading;
 import lotr.UI.Panel_Login;
 import lotr.UI.Panel_MenuContainer;
 import lotr.UI.Panel_Room;
+import lotr.UI.inGame.Panel_GAME;
 import lotr.UI.Panel_Lobby;
 
 import java.awt.event.WindowAdapter;
@@ -23,8 +23,9 @@ import java.sql.SQLException;
 public class LotR {
 
 	private Frame_MainWindow frame;
-	private Rectangle baseSizeOfWindow = new Rectangle(1920,1032); 
 	private DB_Handler dbHandler = new DB_Handler();
+	
+	
 
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -72,11 +73,16 @@ public class LotR {
 	        Panel_Login loginPanel = new Panel_Login(frame, this);
 	        Panel_Lobby lobbyPanel = new Panel_Lobby();
 	        Panel_Room roomPanel = new Panel_Room();
+	        Panel_Fading fadingPanel = new Panel_Fading(frame);
+	        Panel_GAME gamePanel = new Panel_GAME(frame);
 	      
 	        frame.getmmPanel().add(menuContainerPanel);    
 	        //frame.getmmPanel().add(loginPanel);
 	        frame.getmmPanel().add(lobbyPanel);
 	        frame.getmmPanel().add(roomPanel);
+	        frame.getmmPanel().add(fadingPanel);
+	        frame.getmmPanel().add(gamePanel);
+	       
 	       
 	        
 	        //TEMPORARY
@@ -124,6 +130,24 @@ public class LotR {
 						lobbyPanel.setVisible(true);
 						roomPanel.setVisible(false);
 					}
+					if(message.equals("start")) {
+						fadingPanel.startFade();
+						roomPanel.setVisible(false);
+						lobbyPanel.setVisible(false);
+						menuContainerPanel.setVisible(false);
+						
+					}
+					
+				}
+			});
+	        fadingPanel.setICommunication(new ICommunication() {
+				
+				@Override
+				public void somethingHappened(String message) {
+					
+					if(message.equals("gamePanel")) {
+						gamePanel.setVisible(true);
+					}
 					
 				}
 			});
@@ -134,42 +158,4 @@ public class LotR {
 		}  
         
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 }

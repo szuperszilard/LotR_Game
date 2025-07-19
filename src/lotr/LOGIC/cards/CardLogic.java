@@ -25,10 +25,11 @@ public class CardLogic {
 				
 		if (!chainingUsed(player, card)) {			
 			CheckCost.check(card.getSkillCost(), card.getCoinCost(), player, false);				
-		}else if(player.getAllianceTokens().getAllianceTokens().contains("ChainingMoney")){
+		}else if(player.getAllianceTokens().contains("ChainingMoney")){
 			player.addCoin(3);
 		}
 		CardLogic.executeCard(player, card, gl);
+		gl.somethingHappened("turnOver");
 	}
 	
 	public static boolean chainingUsed(Player player, Card card) {
@@ -43,9 +44,10 @@ public class CardLogic {
 		return chainingUsed;
 	}
 	
-	public static void discardCard(Player player, Card card) {
+	public static void discardCard(Card card, GameLoop gl) {
 		
-		
+		gl.getGame().addToDiscard(card);
+		gl.somethingHappened("turnOver");
 		
 	}
 	
@@ -88,11 +90,13 @@ public class CardLogic {
 				
 				String line = br.readLine();
 				String[] splitLine = line.split(",");
+				
 				String[] stringArrayOfSkills = splitLine[0].split(";");
 				int[] intArrayOfSkills = new int[5];
 				for(int i = 0; i < 5; i++) {
 					intArrayOfSkills[i] = Integer.parseInt(stringArrayOfSkills[i]);
 				}
+				
 				String coverString = "";
 				int discardCost = 0;
 				if(fileName.contains("cards1")) {
