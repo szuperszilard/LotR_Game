@@ -2,6 +2,8 @@ package lotr.Logic;
 
 
 import java.awt.EventQueue;
+
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 import lotr.DataConstructs.User;
@@ -51,6 +53,7 @@ public class LotR {
 			dbHandler.connect();
 		
 			frame = new Frame_MainWindow(dbHandler);
+			frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
 	        frame.addWindowListener(new WindowAdapter() {
 				@Override
 				public void windowClosing(WindowEvent e) {				

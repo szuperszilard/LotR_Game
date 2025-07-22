@@ -12,10 +12,7 @@ import javax.swing.ImageIcon;
 import lotr.DataConstructs.Card;
 import lotr.DataConstructs.Player;
 import lotr.Logic.CheckCost;
-import lotr.Logic.CheckRaces;
-import lotr.Logic.EffectLogic;
 import lotr.Logic.GameLoop;
-import lotr.Logic.Prompter;
 import lotr.Logic.Shuffler;
 
 public class CardLogic {

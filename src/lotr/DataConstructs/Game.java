@@ -41,4 +41,13 @@ public class Game {
 		discard.add(card);
 	}
 
+	public ArrayList<Card> getCardsOne(){
+		return cardsOne;
+	}
+	public ArrayList<Card> getCardsTwo(){
+		return cardsTwo;
+	}
+	public ArrayList<Card> getCardsThree(){
+		return cardsThree;
+	}
 }

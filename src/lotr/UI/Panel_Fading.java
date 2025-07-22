@@ -44,22 +44,18 @@ public class Panel_Fading extends JPanel{
 				repaint();
 			}
 		});		
-		setOpaque(false);	
-		
-	}
-	
+		setOpaque(false);			
+	}	
 	public void startFade() {		
 		plusOrMinus = 1;
 		fader = 0;
 		timer.start();		
-	}
-	
+	}	
 	public void startUnfade() {			
 		plusOrMinus = -1;
 		fader = 255;
 		timer.start();
-	}
-	
+	}	
 	protected void paintComponent(Graphics g) {		
 		super.paintComponent(g);
 		g.setColor(new Color(0,0,0,fader));
@@ -67,6 +63,5 @@ public class Panel_Fading extends JPanel{
 	}
 	public void setICommunication(ICommunication comms) {
 		this.comms = comms;
-	}
-	
+	}	
 }
