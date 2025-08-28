@@ -5,10 +5,10 @@ import java.awt.Image;
 import java.io.IOException;
 
 import javax.swing.ImageIcon;
-import javax.swing.JFrame;
 import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
 
+import lotr.UI.Frame_MainWindow;
 import lotr.UI.Logic.ImageScaler;
 import lotr.UI.Logic.MovePanelOneCoordinate;
 
@@ -20,10 +20,8 @@ public class LayeredPane_QotR extends JLayeredPane{
     private Image scaledImg_FotR;
     private Image scaledImg_Sauron;
 	
-	private double ratio= (double)img_QotR.getWidth(null)/img_QotR.getHeight(null);
-	
-	private int height;
-	private int width;
+	public static int height;
+	public static int width;
 	
 	private double step = height*0.2822;
 	
@@ -36,9 +34,9 @@ public class LayeredPane_QotR extends JLayeredPane{
 	private MovePanelOneCoordinate pnlFotR;
 	private MovePanelOneCoordinate pnlSauron;
 	
-	public LayeredPane_QotR(JFrame frame) {
+	public LayeredPane_QotR() {
 		
-		width = (int)Math.round(frame.getWidth()*0.53);
+		width = (int)Math.round(Frame_MainWindow.frameWidth*0.53);
 		height = (int)Math.round(width*0.117);
 		try {
 			scaledImg_QotR = ImageScaler.imageScaler("D:\\Eclipse\\LotRGame\\LotRpics\\Done\\QotR\\QotR2.png", width, height).getImage();
@@ -62,12 +60,10 @@ public class LayeredPane_QotR extends JLayeredPane{
 		pnl_QotR.setOpaque(false);		
 		
 		pnlFotR = new MovePanelOneCoordinate(scaledImg_FotR, 0);
-		pnlFotR.setBounds(0,0,width, height);
-		pnlFotR.setOpaque(false);
+		pnlFotR.setBounds(0,0,width, height);	
 		
 		pnlSauron = new MovePanelOneCoordinate(scaledImg_Sauron, 0);
 		pnlSauron.setBounds(0,0,width, height);
-		pnlSauron.setOpaque(false);
 		
 		this.setBounds(0, 0, width, height);
 		this.add(pnl_QotR, Integer.valueOf(0));

@@ -6,14 +6,12 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
-
-import javax.swing.ImageIcon;
+import java.util.Collections;
 
 import lotr.DataConstructs.Card;
 import lotr.DataConstructs.Player;
 import lotr.Logic.CheckCost;
 import lotr.Logic.GameLoop;
-import lotr.Logic.Shuffler;
 
 public class CardLogic {
 	
@@ -89,9 +87,12 @@ public class CardLogic {
 				String[] splitLine = line.split(",");
 				
 				String[] stringArrayOfSkills = splitLine[0].split(";");
+				
 				int[] intArrayOfSkills = new int[5];
 				for(int i = 0; i < 5; i++) {
-					intArrayOfSkills[i] = Integer.parseInt(stringArrayOfSkills[i]);
+					
+					String temp = stringArrayOfSkills[i];
+					intArrayOfSkills[i] = Integer.parseInt("0");	
 				}
 				
 				String coverString = "";
@@ -106,24 +107,24 @@ public class CardLogic {
 					coverString = "D:\\Eclipse\\LotRGame\\LotRpics\\Done\\Cover\\cover3.png";
 					discardCost = 3;
 				}
-				ImageIcon coverImage = new ImageIcon(coverString);
 			
 				stack.add(new Card(
-						coverImage,
+						coverString,
 						intArrayOfSkills, 
-						new ImageIcon(splitLine[1]), 
+						splitLine[1], 
 						splitLine[2], 
 						splitLine[3], 
 						Integer.parseInt(splitLine[4]), 
 						splitLine[5], 
 						Integer.parseInt(splitLine[6]), 
 						splitLine[7],
-						discardCost));				
+						discardCost));	
+			
 			}
 		} catch (FileNotFoundException e) {
 			System.out.println("fileNotFound");
 		}
-		stack = Shuffler.shuffle(stack);
+		Collections.shuffle(stack);
 		return stack;
 	}
 }

@@ -5,22 +5,22 @@ import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.JPanel;
+import javax.swing.JLabel;
 import javax.swing.Timer;
 
 
-public class MovePanelOneCoordinate extends JPanel implements ActionListener{
+public class MovePanelOneCoordinate extends JLabel implements ActionListener{
 
 	private Image scaledImg;
 	private Timer timer;
 	private int currentPosition = 0;
 	private int newPosition = 0;
-	
-	
+		
 	public MovePanelOneCoordinate(Image scaledImg, int currentPosition) {	
 		this.scaledImg = scaledImg;
 		this.currentPosition = currentPosition;
 		timer = new Timer(2, this);
+		setOpaque(false);
 	};
 	protected void paintComponent(Graphics g) {
         super.paintComponent(g);       

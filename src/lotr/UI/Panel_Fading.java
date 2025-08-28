@@ -22,8 +22,8 @@ public class Panel_Fading extends JPanel{
 	
 	public Panel_Fading(JFrame frame) {
 		
-		width = frame.getWidth();
-		height = frame.getHeight();
+		width = Frame_MainWindow.frameWidth;
+		height = Frame_MainWindow.frameHeight;
 		setBounds(0,0,width, height);
 		timer = new Timer(2, new ActionListener() {
 			@Override

@@ -1,34 +1,63 @@
 package lotr.UI.inGame;
 
-import java.awt.Color;
-import java.awt.Dimension;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
+import java.util.ArrayList;
 
-import javax.swing.JFrame;
 import javax.swing.JLayeredPane;
+import javax.swing.Timer;
+
+import lotr.Logic.cards.CardLogic;
+import lotr.UI.Logic.LayeredPane_RightSide_Builder;
+import lotr.UI.Logic.CardHolder.CardHolderLogic;
 
 public class LayeredPane_RightSide extends JLayeredPane implements ActionListener{
-
-	public LayeredPane_RightSide(JFrame frame) {
+	
+	private ArrayList<Panel_CardHolder> listOfCardHolderPanels;
+	
+	private int XcurrentCoordinate;
+	private int YcurrentCoordinate;
+	private Image imageToMove;
+	private Timer timer;
+	
+	public LayeredPane_RightSide() throws IOException {
+			
+		deal(3);
+		timer = new Timer(1000, this);
 		
-		setPreferredSize(new Dimension((int)Math.round(frame.getWidth()/2),frame.getHeight()));
-		setBackground(Color.red);
-		setLayout(null);
-		setVisible(true);
-		setOpaque(true);
+	}
+	
+	public void deal(int chapter) throws IOException {
 		
-		Panel_CardHolder sixCards = new Panel_CardHolder(6, frame);
-		sixCards.setB(frame);
-		Panel_CardHolder fiveCards = new Panel_CardHolder(5, frame);
-		fiveCards.setB(frame);
-		fiveCards.setBackground(Color.green);
-		
-		add(sixCards, Integer.valueOf(10));
-		add(fiveCards, Integer.valueOf(11));
+		LayeredPane_RightSide_Builder.build(this);
+		CardHolderLogic.fillCardHolders(CardLogic.stackToUse("D:\\Eclipse\\LotRGame\\LotRpics\\Done\\cards" + chapter + "\\cards" + chapter +".csv"), listOfCardHolderPanels, chapter);
 	}
 
+	public void paint(Graphics g) {
+		
+		super.paint(g);
+		Graphics2D g2D = (Graphics2D) g;
+		
+		g2D.drawImage(imageToMove, XcurrentCoordinate, YcurrentCoordinate, null);
+	}
+	
 	@Override
 	public void actionPerformed(ActionEvent e) {	
+		
+		
+		
 	}
+
+	public ArrayList<Panel_CardHolder> getListOfCardHolderPanels() {
+		return listOfCardHolderPanels;
+	}
+	public void setListOfCardHolderPanels(ArrayList<Panel_CardHolder> listOfCardHolderPanels) {
+		this.listOfCardHolderPanels = listOfCardHolderPanels;
+	}
+	
+	
 }

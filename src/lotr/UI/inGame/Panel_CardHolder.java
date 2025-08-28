@@ -1,44 +1,25 @@
 package lotr.UI.inGame;
 
-import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.FlowLayout;
+import java.awt.GridBagLayout;
 
-import javax.swing.JFrame;
 import javax.swing.JPanel;
+
+import lotr.UI.Frame_MainWindow;
 
 public class Panel_CardHolder extends JPanel{
 	
-	private int cardCount;
-	private int chapter;
-
-	public Panel_CardHolder(int cardCount, int chapter, JFrame frame) {
+	public static final double cardWidth = Frame_MainWindow.frameWidth*0.0669;
+	public static final double cardHeight = Frame_MainWindow.frameHeight*0.18;
+	public static final int cardHolderPanelWidth = (int)Math.round(6* cardWidth + 40);
+	public static final int cardHolderPanelHeight = (int)Math.round(cardHeight);
+	
+	public Panel_CardHolder() {	
 		
-		this.cardCount = cardCount;
-		setPreferredSize(new Dimension((int)Math.round(cardCount*frame.getWidth()*0.0669 + (cardCount-1)*8),(int)Math.round(frame.getHeight()*0.173)));
-		setBackground(Color.blue);
+		setPreferredSize(new Dimension((int)Math.round(6* cardWidth + 40),(int)Math.round(cardHeight)));
 		setVisible(true);
-		setOpaque(true);
-		setLayout(new FlowLayout());
-	}
-	
-	public int getCardCount() {
-		return cardCount;
-	}
-	
-	public void setB(JFrame frame) {
+		setOpaque(false);
+		setLayout(new GridBagLayout());
 		
-		
-		int frameWidth = frame.getWidth();
-		int frameHeight = frame.getHeight();
-		int totalCardsPlusSpacesWidth = (int)Math.round(frameWidth*(0.5 - cardCount*0.0669) - (cardCount-1)*8);
-		int lpQotRHeight = (int)Math.round(frame.getWidth()*0.53*0.117) + 10;
-		
-		setBounds(
-				(int)Math.round(totalCardsPlusSpacesWidth/2),
-				lpQotRHeight + 10,
-				(int)getPreferredSize().getWidth(),
-				(int)getPreferredSize().getHeight()
-		);
 	}
 }

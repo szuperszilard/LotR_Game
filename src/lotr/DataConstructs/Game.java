@@ -13,10 +13,10 @@ public class Game {
 	private Player Sauron;
 	private Player FotR;
 	private Map map;
-	private ArrayList<Card> cardsOne;
-	private ArrayList<Card> cardsTwo;
-	private ArrayList<Card> cardsThree;
-	private ArrayList<Card> discard;
+	private static ArrayList<Card> cardsOne;
+	private static ArrayList<Card> cardsTwo;
+	private static ArrayList<Card> cardsThree;
+	private static ArrayList<Card> discard;
 	
 	public Game() throws IOException{
 		
@@ -40,14 +40,21 @@ public class Game {
 	public void addToDiscard(Card card) {
 		discard.add(card);
 	}
+	public static void addToDiscard(ArrayList<Card> cards) {
+		for(Card card : cards) {
+			discard.add(card);
+		}
+	}
 
-	public ArrayList<Card> getCardsOne(){
+	public static ArrayList<Card> getCardsOne(){
 		return cardsOne;
 	}
-	public ArrayList<Card> getCardsTwo(){
+	public static ArrayList<Card> getCardsTwo(){
 		return cardsTwo;
 	}
-	public ArrayList<Card> getCardsThree(){
+	public static ArrayList<Card> getCardsThree(){
 		return cardsThree;
 	}
+
+	
 }

@@ -77,7 +77,7 @@ public class LotR {
 	        Panel_Lobby lobbyPanel = new Panel_Lobby();
 	        Panel_Room roomPanel = new Panel_Room();
 	        Panel_Fading fadingPanel = new Panel_Fading(frame);
-	        Panel_GAME gamePanel = new Panel_GAME(frame);
+	        Panel_GAME gamePanel = new Panel_GAME();
 	      
 	        frame.getmmPanel().add(menuContainerPanel);    
 	        //frame.getmmPanel().add(loginPanel);

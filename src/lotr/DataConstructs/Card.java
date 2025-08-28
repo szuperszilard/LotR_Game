@@ -5,9 +5,9 @@ import javax.swing.ImageIcon;
 public class Card {
 		
 	
-	private ImageIcon cover;
+	private String pathToCover;
 	private int[] skillCost = new int[] {0,0,0,0,0}; 	//black, blue, red, purple, green
-	private ImageIcon picture;
+	private String pathToPicture;
 	private String hasChainingSymbol;
 	private String usesThisChainingSymbol;
 	private int coinCost;
@@ -22,12 +22,12 @@ public class Card {
 	// green - 0 elves, 1 dwarves, 2 hobbits, 3 men, 4 ents, 5 wizards
 	// gray - 0 black, 1 blue, 2 red, 3 purple, 4 green
 		
-	public Card(ImageIcon cover, int[] skillCost, ImageIcon picture,  String hasChainingSymbol,
+	public Card(String pathToCover, int[] skillCost, String pathToPicture,  String hasChainingSymbol,
 				String usesThisChainingSymbol, int coinCost, String color, int effectCount, 
 				String additionalInfo, int discardCost) {
-		this.cover = cover;
+		this.pathToCover = pathToCover;
 		this.skillCost = skillCost;
-		this.picture = picture;
+		this.pathToPicture = pathToPicture;
 		this.hasChainingSymbol = hasChainingSymbol;
 		this.usesThisChainingSymbol = usesThisChainingSymbol;
 		this.coinCost = coinCost;
@@ -55,11 +55,11 @@ public class Card {
 	public int getCoinCost() {
 		return coinCost;
 	}
-	public ImageIcon getPicture() {
-		return picture;
+	public String getPathToPicture() {
+		return pathToPicture;
 	}
-	public ImageIcon getCover() {
-		return cover;
+	public String getPathToCover() {
+		return pathToCover;
 	}
 	public int[] getSkillCost() {
 		return skillCost;

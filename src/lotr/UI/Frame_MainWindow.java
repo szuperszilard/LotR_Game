@@ -21,6 +21,9 @@ public class Frame_MainWindow extends JFrame{
 	private String ME = "D:\\Eclipse\\LotRGame\\data\\wp.jpg";
 	private BufferedImage backgroundImage = ImageIO.read(new File(ME));
 	
+	public static int frameWidth;
+	public static int frameHeight;
+	
 	public JPanel getmmPanel() {
 		return mmPanel;
 	}
@@ -35,7 +38,10 @@ public class Frame_MainWindow extends JFrame{
 		setIconImage(iconOfWindow.getImage());
 		setBounds(usableScreenArea);
 		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
-		getContentPane().setLayout(null);
+		getContentPane().setLayout(null);	
+		
+		frameWidth = (int)usableScreenArea.getWidth();
+		frameHeight = (int)usableScreenArea.getHeight();
 		
 		mmPanel = new JPanel() {
 			
