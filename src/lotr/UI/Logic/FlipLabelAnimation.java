@@ -58,6 +58,6 @@ public class FlipLabelAnimation{
 			
 		} catch (IOException e) {
 			System.out.println("couldnt scale image for label_clickable");
-		}		
+		}	
 	}	
 }

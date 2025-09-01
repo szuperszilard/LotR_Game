@@ -8,7 +8,6 @@ import java.awt.event.MouseListener;
 import java.io.IOException;
 
 import javax.swing.JLabel;
-import javax.swing.Timer;
 
 import lotr.DataConstructs.Card;
 import lotr.UI.Logic.FlipLabelAnimation;
@@ -21,9 +20,9 @@ public class Label_Clickable extends JLabel implements MouseListener{
 
 	private int cardIdentifierNumber;
 	private Card cardOfLabel;
-	private Image currentImage;
-	private int widthOfImageOriginal;
-	private int widthOfImageCurrent;
+	private Image displayedImage;
+	private int originalWidthOfImage;
+	private int currentWidthOfImage;
 	private FlipLabelAnimation animation;
 		
 	public Label_Clickable(Card cardOfLabel, boolean cover, int cardIdentifierNumber) throws IOException {
@@ -31,10 +30,12 @@ public class Label_Clickable extends JLabel implements MouseListener{
 		setVisible(true);
 		setOpaque(false);
 		String pathToCurrentImage = (!cover)?cardOfLabel.getPathToPicture():cardOfLabel.getPathToCover();
-		currentImage = ImageScaler.imageScaler(pathToCurrentImage, getPreferredSize().getWidth(), getPreferredSize().getHeight()).getImage();		
+		displayedImage = ImageScaler.imageScaler(pathToCurrentImage, getPreferredSize().getWidth(), getPreferredSize().getHeight()).getImage();		
 		this.addMouseListener(this);
 		this.cardIdentifierNumber = cardIdentifierNumber;
-		this.cardOfLabel = cardOfLabel;		
+		this.cardOfLabel = cardOfLabel;	
+		originalWidthOfImage = (int)Math.round(Panel_CardHolder.cardWidth);
+		currentWidthOfImage = (int)Math.round(Panel_CardHolder.cardWidth);
 	}
 	
 	public void flip() {
@@ -48,7 +49,7 @@ public class Label_Clickable extends JLabel implements MouseListener{
 	}
 	protected void paintComponent(Graphics g) {
 		super.paintComponent(g);
-		g.drawImage(currentImage, (widthOfImageOriginal-widthOfImageCurrent)/2, 0, this);
+		g.drawImage(displayedImage, (originalWidthOfImage-currentWidthOfImage)/2, 0, this);
 	}
 	
 
@@ -87,10 +88,10 @@ public class Label_Clickable extends JLabel implements MouseListener{
 		this.cardIdentifierNumber = cardIdentifierNumber;
 	}	
 	public void setCurrentImage(Image image) {
-		this.currentImage = image;
+		this.displayedImage = image;
 	}
 	public void setWidthOfImageCurrent(int width) {
-		this.widthOfImageCurrent = width;
+		this.currentWidthOfImage = width;
 	}
 	
 	public Card getCardOfLabel() {
