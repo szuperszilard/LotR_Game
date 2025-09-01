@@ -1,14 +1,19 @@
 package lotr.UI.inGame;
 
 import java.awt.Dimension;
+import java.awt.Graphics;
+import java.awt.Image;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.io.IOException;
 
 import javax.swing.JLabel;
+import javax.swing.Timer;
 
 import lotr.DataConstructs.Card;
+import lotr.UI.Logic.FlipLabelAnimation;
 import lotr.UI.Logic.ImageScaler;
+import lotr.UI.Logic.Label_Clickable_FlipShouldOccurChecker;
 import lotr.UI.Logic.Label_Clickable_OverlapCheck;
 import lotr.UI.Logic.CardHolder.CardHolderLogic;
 
@@ -16,52 +21,43 @@ public class Label_Clickable extends JLabel implements MouseListener{
 
 	private int cardIdentifierNumber;
 	private Card cardOfLabel;
-	private double xCoord = getLocationOnScreen().getX();
-	private double yCoord = getLocationOnScreen().getY();
-	
-	public Label_Clickable(Card card, boolean cover, int cardIdentifierNumber) throws IOException {
+	private Image currentImage;
+	private int widthOfImageOriginal;
+	private int widthOfImageCurrent;
+	private FlipLabelAnimation animation;
+		
+	public Label_Clickable(Card cardOfLabel, boolean cover, int cardIdentifierNumber) throws IOException {
 		setPreferredSize(new Dimension ((int)Math.round(Panel_CardHolder.cardWidth),(int)Math.round(Panel_CardHolder.cardHeight)));
 		setVisible(true);
 		setOpaque(false);
-		if(!cover) {
-			setIcon(ImageScaler.imageScaler(card.getPathToPicture(), getPreferredSize().getWidth(), getPreferredSize().getHeight()));
-		}else {
-			setIcon(ImageScaler.imageScaler(card.getPathToCover(), getPreferredSize().getWidth(), getPreferredSize().getHeight()));
-		}	
+		String pathToCurrentImage = (!cover)?cardOfLabel.getPathToPicture():cardOfLabel.getPathToCover();
+		currentImage = ImageScaler.imageScaler(pathToCurrentImage, getPreferredSize().getWidth(), getPreferredSize().getHeight()).getImage();		
 		this.addMouseListener(this);
 		this.cardIdentifierNumber = cardIdentifierNumber;
-		cardOfLabel = card;
-	}
-	public int getCardIdentifierNumber() {
-		return cardIdentifierNumber;
-	}
-	public void setCardIdentifierNumber(int cardIdentifierNumber) {
-		this.cardIdentifierNumber = cardIdentifierNumber;
-	}
-	public double getxCoord() {
-		return xCoord;
-	}
-	public double getyCoord() {
-		return yCoord;
+		this.cardOfLabel = cardOfLabel;		
 	}
 	
+	public void flip() {
+
+		try {
+			animation = new FlipLabelAnimation();
+			animation.flip(this);
+		} catch (IOException e) {
+			System.out.println("couldnt flip animation at label_clickable");
+		}
+	}
+	protected void paintComponent(Graphics g) {
+		super.paintComponent(g);
+		g.drawImage(currentImage, (widthOfImageOriginal-widthOfImageCurrent)/2, 0, this);
+	}
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
 	@Override
 	public void mouseClicked(MouseEvent e) {
 		if(Label_Clickable_OverlapCheck.checkIfCardCanBeTaken(this, CardHolderLogic.getListOfCardsAsIntegers())) {
 			setVisible(false);
 			CardHolderLogic.removeFromListOfCards(cardIdentifierNumber);
+			Label_Clickable_FlipShouldOccurChecker.checkFlip(cardIdentifierNumber);
 		}
 		
 	}
@@ -84,4 +80,21 @@ public class Label_Clickable extends JLabel implements MouseListener{
 	public void mouseReleased(MouseEvent e) {
 		// TODO Auto-generated method stub
 	}
+	public int getCardIdentifierNumber() {
+		return cardIdentifierNumber;
+	}
+	public void setCardIdentifierNumber(int cardIdentifierNumber) {
+		this.cardIdentifierNumber = cardIdentifierNumber;
+	}	
+	public void setCurrentImage(Image image) {
+		this.currentImage = image;
+	}
+	public void setWidthOfImageCurrent(int width) {
+		this.widthOfImageCurrent = width;
+	}
+	
+	public Card getCardOfLabel() {
+		return cardOfLabel;
+	}
+	
 }

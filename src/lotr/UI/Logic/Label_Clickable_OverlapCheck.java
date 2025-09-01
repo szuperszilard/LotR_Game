@@ -23,8 +23,18 @@ public class Label_Clickable_OverlapCheck {
 		}
 		return canBeTaken;
 	}
+	
+	public static boolean checkIfCardCanBeTaken(int cardIdentifierNumber, ArrayList<Integer> listOfCardsAsIntegers) {
+		
+		boolean canBeTaken = false;
+		int[] cardsToCheck = mapOfOverlapDependencies.get(cardIdentifierNumber);
+		if(!listOfCardsAsIntegers.contains(cardsToCheck[0]) && !listOfCardsAsIntegers.contains(cardsToCheck[1])) {
+			canBeTaken = true;
+		}
+		return canBeTaken;
+	}
 
-	public static Map<Integer, int[]> readMapOfOverlapDependenciesFromFile(String pathToFile) {
+	public static Map<Integer, int[]> readMapOfDependenciesFromFile(String pathToFile) {
 		
 		Map<Integer, int[]> mapOfOverlapDependencies = new HashMap<>();
 		try {

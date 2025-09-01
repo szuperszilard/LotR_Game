@@ -26,7 +26,7 @@ public class LayeredPane_RightSide extends JLayeredPane implements ActionListene
 	
 	public LayeredPane_RightSide() throws IOException {
 			
-		deal(3);
+		deal(1);
 		timer = new Timer(1000, this);
 		
 	}

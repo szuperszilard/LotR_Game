@@ -15,10 +15,10 @@ public class LayeredPane_RightSide_Builder {
 		
 		lprs.setListOfCardHolderPanels(new ArrayList<Panel_CardHolder>());
 		lprs.setPreferredSize(new Dimension((int)Math.round(Frame_MainWindow.frameWidth/2),Frame_MainWindow.frameHeight));
-		lprs.setBackground(Color.red);
+		//lprs.setBackground(Color.red);
 		lprs.setLayout(null);
 		lprs.setVisible(true);
-		lprs.setOpaque(true);
+		lprs.setOpaque(false);
 		
 		int cardHolderXPosition = (Frame_MainWindow.frameWidth/2 - Panel_CardHolder.cardHolderPanelWidth)/2;
 		

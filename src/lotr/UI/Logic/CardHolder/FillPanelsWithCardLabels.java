@@ -15,6 +15,7 @@ import lotr.UI.inGame.Panel_CardHolder;
 public class FillPanelsWithCardLabels {
 
 	public static void fill(ArrayList<Card> cards, ArrayList<Panel_CardHolder> cardHolderPanels, int chapter, int[] cardCountInRowByChapter) {
+		CardHolderLogic.setListOfLabels(new ArrayList<Label_Clickable>());
 		boolean cover = false; 	
 		int cardIdentifierNumber = 1;
 		
