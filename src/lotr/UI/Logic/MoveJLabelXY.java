@@ -23,6 +23,8 @@ public class MoveJLabelXY extends JLabel{
 	private int Xdirection;
 	private int Ydirection;
 	
+	// a koordinánkénti mozgási sebességek közötti arány azonos kell legyen a koordinánkénti kiindulási- és végpont közötti aránnyal, és akkor mindig átlóban fognak menni a dolgok. 
+	
 	
 	public MoveJLabelXY(int Xdestination, int Ydestination, int Xcurrent, int Ycurrent, String pathToImage) throws IOException {
 		
