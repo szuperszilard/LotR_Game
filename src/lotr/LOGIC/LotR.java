@@ -27,8 +27,6 @@ public class LotR {
 	private Frame_MainWindow frame;
 	private DB_Handler dbHandler = new DB_Handler();
 	
-	
-
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -85,17 +83,13 @@ public class LotR {
 	        frame.getmmPanel().add(roomPanel);
 	        frame.getmmPanel().add(fadingPanel);
 	        frame.getmmPanel().add(gamePanel);
-	       
-	       
-	        
 	        //TEMPORARY
 	        
 	        menuContainerPanel.setVisible(true);
 	              
 	        loginPanel.setICommunication(new ICommunication() {
 				@Override
-				public void somethingHappened(String message) {
-					
+				public void somethingHappened(String message) {				
 					if(message.equals("login")) {					
 						menuContainerPanel.setVisible(true);
 					}				
@@ -103,8 +97,7 @@ public class LotR {
 			});	
 	        menuContainerPanel.setICommunication(new ICommunication() {
 				@Override
-				public void somethingHappened(String message) {
-					
+				public void somethingHappened(String message) {				
 					if(message.equals("play")) {															
 						lobbyPanel.setVisible(true);							
 					}else if(message.equals("back")){
@@ -112,24 +105,19 @@ public class LotR {
 					}
 				}
 			});	
-	        lobbyPanel.setICommunication(new ICommunication() {
-				
+	        lobbyPanel.setICommunication(new ICommunication() {				
 				@Override
-				public void somethingHappened(String message) {
-					
+				public void somethingHappened(String message) {					
 					if(message.equals("new game")) {
 						lobbyPanel.setVisible(false);
 						roomPanel.setVisible(true);
-					}
-					
+					}				
 				}
 			});
-	        roomPanel.setICommunication(new ICommunication() {
-				
+	        roomPanel.setICommunication(new ICommunication() {				
 				@Override
-				public void somethingHappened(String message) {
-					
-					if(message.equals("back")) {
+				public void somethingHappened(String message) {					
+					if(message.equals("backToLobby")) {
 						lobbyPanel.setVisible(true);
 						roomPanel.setVisible(false);
 					}
@@ -137,28 +125,22 @@ public class LotR {
 						fadingPanel.startFade();
 						roomPanel.setVisible(false);
 						lobbyPanel.setVisible(false);
-						menuContainerPanel.setVisible(false);
-						
-					}
-					
+						menuContainerPanel.setVisible(false);						
+					}					
 				}
 			});
-	        fadingPanel.setICommunication(new ICommunication() {
-				
+	        fadingPanel.setICommunication(new ICommunication() {				
 				@Override
-				public void somethingHappened(String message) {
-					
+				public void somethingHappened(String message) {					
 					if(message.equals("gamePanel")) {
 						gamePanel.setVisible(true);
-					}
-					
+					}					
 				}
 			});
 	        
 		} catch (SQLException e) {
 			JOptionPane.showMessageDialog(frame, "Failed to connect to server.", "Failed", JOptionPane.ERROR_MESSAGE);
 			System.out.println(e.getMessage());
-		}  
-        
+		}          
 	}
 }

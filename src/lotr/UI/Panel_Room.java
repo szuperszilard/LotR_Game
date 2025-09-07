@@ -50,7 +50,7 @@ public class Panel_Room extends JPanel{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				
-				comms.somethingHappened("back");
+				comms.somethingHappened("backToLobby");
 			}
 		});
 		
