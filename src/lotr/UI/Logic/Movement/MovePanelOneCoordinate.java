@@ -1,4 +1,4 @@
-package lotr.UI.Logic;
+package lotr.UI.Logic.Movement;
 
 import java.awt.Graphics;
 import java.awt.Image;

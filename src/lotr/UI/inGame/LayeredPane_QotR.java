@@ -10,7 +10,7 @@ import javax.swing.JPanel;
 
 import lotr.UI.Frame_MainWindow;
 import lotr.UI.Logic.ImageScaler;
-import lotr.UI.Logic.MovePanelOneCoordinate;
+import lotr.UI.Logic.Movement.MovePanelOneCoordinate;
 
 public class LayeredPane_QotR extends JLayeredPane{
 

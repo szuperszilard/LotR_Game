@@ -10,11 +10,11 @@ import java.io.IOException;
 import javax.swing.JLabel;
 
 import lotr.DataConstructs.Card;
-import lotr.UI.Logic.FlipLabelAnimation;
 import lotr.UI.Logic.ImageScaler;
 import lotr.UI.Logic.Label_Clickable_FlipShouldOccurChecker;
 import lotr.UI.Logic.Label_Clickable_OverlapCheck;
 import lotr.UI.Logic.CardHolder.CardHolderLogic;
+import lotr.UI.Logic.Movement.FlipLabelAnimation;
 
 public class Label_Clickable extends JLabel implements MouseListener{
 
@@ -27,7 +27,7 @@ public class Label_Clickable extends JLabel implements MouseListener{
 		
 	public Label_Clickable(Card cardOfLabel, boolean cover, int cardIdentifierNumber) throws IOException {
 		setPreferredSize(new Dimension ((int)Math.round(Panel_CardHolder.cardWidth),(int)Math.round(Panel_CardHolder.cardHeight)));
-		setVisible(true);
+		setVisible(false);
 		setOpaque(false);
 		String pathToCurrentImage = (!cover)?cardOfLabel.getPathToPicture():cardOfLabel.getPathToCover();
 		displayedImage = ImageScaler.imageScaler(pathToCurrentImage, getPreferredSize().getWidth(), getPreferredSize().getHeight()).getImage();		

@@ -25,11 +25,9 @@ public class CardHolderLogic {
 		int[] cardCountInRowByChapter = CardCountInRowArray.getCardCountInRowArray(chapter); 
 		
 		FillPanelsWithCardLabels.fill(cards, cardHolderPanels, chapter, cardCountInRowByChapter);
+		
 	}
 
-	
-	
-	
 	public static void setListOfLabels(ArrayList<Label_Clickable> listOfLabels) {
 		CardHolderLogic.listOfLabels = listOfLabels;
 	}

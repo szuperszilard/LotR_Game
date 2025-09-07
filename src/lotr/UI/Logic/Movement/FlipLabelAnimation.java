@@ -1,10 +1,11 @@
-package lotr.UI.Logic;
+package lotr.UI.Logic.Movement;
 
 import java.awt.Image;
 import java.io.IOException;
 
 import javax.swing.Timer;
 
+import lotr.UI.Logic.ImageScaler;
 import lotr.UI.inGame.Label_Clickable;
 import lotr.UI.inGame.Panel_CardHolder;
 
