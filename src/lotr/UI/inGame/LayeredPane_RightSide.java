@@ -7,7 +7,6 @@ import javax.swing.JLayeredPane;
 
 import lotr.Logic.cards.CardLogic;
 import lotr.UI.Logic.LayeredPane_RightSide_Builder;
-import lotr.UI.Logic.MoveJLabelXY;
 import lotr.UI.Logic.CardHolder.CardHolderLogic;
 
 public class LayeredPane_RightSide extends JLayeredPane{

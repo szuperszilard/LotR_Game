@@ -38,7 +38,7 @@ public class LayeredPane_RightSide_Builder {
 		JButton button = new JButton("deal");
 		button.setBounds(500,800,50,50);
 		button.setVisible(true);
-		MoveJLabelXY label = new MoveJLabelXY(40, 50, 200, 250, "D:\\Eclipse\\LotRGame\\LotRpics\\Done\\cards1\\01.png");
+		MoveJLabelXY label = new MoveJLabelXY(500, 250, 10, 10, "D:\\Eclipse\\LotRGame\\LotRpics\\Done\\cards1\\01.png");
 		label.setBounds(10,10,(int)label.getPreferredSize().getWidth(), (int)label.getPreferredSize().getHeight());
 		lprs.add(label, Integer.valueOf(50));
 		lprs.add(button, Integer.valueOf(60));
