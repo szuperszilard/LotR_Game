@@ -1,6 +1,5 @@
 package lotr.Logic;
 
-
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -21,23 +20,20 @@ import java.awt.event.WindowEvent;
 import java.io.IOException;
 import java.sql.SQLException;
 
-
 public class LotR {
 
 	private Frame_MainWindow frame;
 	private final DB_Handler dbHandler = new DB_Handler();
 	
 	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					LotR window = new LotR();
-					window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
+		EventQueue.invokeLater(() -> {
+            try {
+                LotR window = new LotR();
+                window.frame.setVisible(true);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        });
 	}
 	
 	public LotR() throws IOException {
@@ -87,56 +83,41 @@ public class LotR {
 	        
 	        menuContainerPanel.setVisible(true);
 	              
-	        loginPanel.setICommunication(new ICommunication() {
-				@Override
-				public void somethingHappened(String message) {				
-					if(message.equals("login")) {					
-						menuContainerPanel.setVisible(true);
-					}				
-				}
-			});	
-	        menuContainerPanel.setICommunication(new ICommunication() {
-				@Override
-				public void somethingHappened(String message) {				
-					if(message.equals("play")) {															
-						lobbyPanel.setVisible(true);							
-					}else if(message.equals("back")){
-						lobbyPanel.setVisible(false);
-					}
-				}
-			});	
-	        lobbyPanel.setICommunication(new ICommunication() {				
-				@Override
-				public void somethingHappened(String message) {					
-					if(message.equals("new game")) {
-						lobbyPanel.setVisible(false);
-						roomPanel.setVisible(true);
-					}				
-				}
-			});
-	        roomPanel.setICommunication(new ICommunication() {				
-				@Override
-				public void somethingHappened(String message) {					
-					if(message.equals("backToLobby")) {
-						lobbyPanel.setVisible(true);
-						roomPanel.setVisible(false);
-					}
-					if(message.equals("start")) {
-						fadingPanel.startFade();
-						roomPanel.setVisible(false);
-						lobbyPanel.setVisible(false);
-						menuContainerPanel.setVisible(false);						
-					}					
-				}
-			});
-	        fadingPanel.setICommunication(new ICommunication() {
-				@Override
-				public void somethingHappened(String message) {					
-					if(message.equals("gamePanel")) {
-						gamePanel.setVisible(true);
-					}					
-				}
-			});
+	        loginPanel.setICommunication(message -> {
+                if(message.equals("login")) {
+                    menuContainerPanel.setVisible(true);
+                }
+            });
+	        menuContainerPanel.setICommunication(message -> {
+                if(message.equals("play")) {
+                    lobbyPanel.setVisible(true);
+                }else if(message.equals("back")){
+                    lobbyPanel.setVisible(false);
+                }
+            });
+	        lobbyPanel.setICommunication(message -> {
+                if(message.equals("new game")) {
+                    lobbyPanel.setVisible(false);
+                    roomPanel.setVisible(true);
+                }
+            });
+	        roomPanel.setICommunication(message -> {
+                if(message.equals("backToLobby")) {
+                    lobbyPanel.setVisible(true);
+                    roomPanel.setVisible(false);
+                }
+                if(message.equals("start")) {
+                    fadingPanel.startFade();
+                    roomPanel.setVisible(false);
+                    lobbyPanel.setVisible(false);
+                    menuContainerPanel.setVisible(false);
+                }
+            });
+	        fadingPanel.setICommunication(message -> {
+                if(message.equals("gamePanel")) {
+                    gamePanel.setVisible(true);
+                }
+            });
 	        
 		} catch (SQLException e) {
 			JOptionPane.showMessageDialog(frame, "Failed to connect to server.", "Failed", JOptionPane.ERROR_MESSAGE);

@@ -12,38 +12,36 @@ import lotr.Logic.cards.CardLogic;
 import lotr.UI.Frame_MainWindow;
 import lotr.UI.Logic.ImageScaler;
 import lotr.UI.Logic.LayeredPane_RightSide_Builder;
-import lotr.UI.Logic.ListOfCoordinates;
 import lotr.UI.Logic.CardHolder.CardHolderLogic;
 import lotr.UI.Logic.Movement.MoveJLabelXY;
 
 public class LayeredPane_RightSide extends JLayeredPane{
 	
 	private ArrayList<Panel_CardHolder> listOfCardHolderPanels;
-	private ListOfCoordinates listOfLabel_ClickableCoordinates;
-	private MoveJLabelXY label;
+	private final MoveJLabelXY label;
 	public LayeredPane_RightSide() throws IOException {	
 		
 		JLabel deckOfCardsToDeal = new JLabel();
 		deckOfCardsToDeal.setPreferredSize(new Dimension((int)Math.round(Panel_CardHolder.cardWidth),(int)Math.round(Panel_CardHolder.cardHeight)));
 		deckOfCardsToDeal.setVisible(true);
 		deckOfCardsToDeal.setIcon(ImageScaler.imageScaler(
-				"LotRpics\\Done\\cover\\cover1.png", 
+				"LotRpics\\Done\\Cover\\cover1.png",
 				(int)Math.round(Panel_CardHolder.cardWidth), 
 				(int)Math.round(Panel_CardHolder.cardHeight)));
 		deckOfCardsToDeal.setBounds(
-				((int)Math.round(Frame_MainWindow.frameWidth/2) - (int)Math.round(Panel_CardHolder.cardWidth) - 10), 
+				(Frame_MainWindow.frameWidth/2 - (int)Math.round(Panel_CardHolder.cardWidth) - 10),
 				Frame_MainWindow.frameHeight - (int)Math.round(Panel_CardHolder.cardHeight) - 300, 
 				(int)deckOfCardsToDeal.getPreferredSize().getWidth(), 
 				(int)deckOfCardsToDeal.getPreferredSize().getHeight());
 		add(deckOfCardsToDeal);
 		
 		Point startingPoint = new Point(
-				((int)Math.round(Frame_MainWindow.frameWidth/2) - (int)Math.round(Panel_CardHolder.cardWidth) - 10), 
+				(Frame_MainWindow.frameWidth/2 - (int)Math.round(Panel_CardHolder.cardWidth) - 10),
 				Frame_MainWindow.frameHeight - (int)Math.round(Panel_CardHolder.cardHeight) - 300);
-		label = new MoveJLabelXY(500, 500, startingPoint.x, startingPoint.y, "LotRpics\\Done\\cover\\cover3.png");
+		label = new MoveJLabelXY(500, 500, startingPoint.x, startingPoint.y, "LotRpics\\Done\\Cover\\cover3.png");
 		label.setBounds(startingPoint.x, startingPoint.y, (int)label.getPreferredSize().getWidth(), (int)label.getPreferredSize().getHeight());
 		add(label, Integer.valueOf(100));
-		deal(3);
+		deal(1);
 	}
 	
 	public void deal(int chapter) throws IOException {

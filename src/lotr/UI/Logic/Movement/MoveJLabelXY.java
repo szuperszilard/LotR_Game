@@ -13,7 +13,7 @@ import lotr.UI.inGame.Panel_CardHolder;
 
 public class MoveJLabelXY extends JLabel {
 	
-    private Image scaledImg;
+    private final Image scaledImg;
     private Timer timer;
 
     private int Xdestination;
@@ -66,7 +66,7 @@ public class MoveJLabelXY extends JLabel {
         Xvector = (Xdistance / travelDistance) * speed;
         Yvector = (Ydistance / travelDistance) * speed;
 
-        timer = new Timer(40, e -> { 
+        timer = new Timer(15, e -> {
             boolean isMoving = false;
             setVisible(true);
 
@@ -94,7 +94,4 @@ public class MoveJLabelXY extends JLabel {
         });
         timer.start();
     }
-
-
-    
 }

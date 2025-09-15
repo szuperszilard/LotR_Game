@@ -1,0 +1,16 @@
+version: '3.8'
+services:
+  mysql:
+    image: mysql:8.0
+    ports:
+      - "3307:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: "Egermacskafogo95."
+      MYSQL_DATABASE: lotrdb
+      MYSQL_USER: szabszil95
+      MYSQL_PASSWORD: egerfogo95
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+volumes:
+  mysql_data:

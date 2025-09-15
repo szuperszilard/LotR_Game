@@ -18,14 +18,13 @@ import lotr.UI.Logic.Movement.FlipLabelAnimation;
 
 public class Label_Clickable extends JLabel implements MouseListener{
 
-	private int cardIdentifierNumber;
-	private Card cardOfLabel;
+	private final int cardIdentifierNumber;
+	private final Card cardOfLabel;
 	private Image displayedImage;
-	private int originalWidthOfImage;
+	private final int originalWidthOfImage;
 	private int currentWidthOfImage;
-	private FlipLabelAnimation animation;
-		
-	public Label_Clickable(Card cardOfLabel, boolean cover, int cardIdentifierNumber) throws IOException {
+
+    public Label_Clickable(Card cardOfLabel, boolean cover, int cardIdentifierNumber) throws IOException {
 		setPreferredSize(new Dimension ((int)Math.round(Panel_CardHolder.cardWidth),(int)Math.round(Panel_CardHolder.cardHeight)));
 		setVisible(false);
 		setOpaque(false);
@@ -41,10 +40,10 @@ public class Label_Clickable extends JLabel implements MouseListener{
 	public void flip() {
 
 		try {
-			animation = new FlipLabelAnimation();
+            FlipLabelAnimation animation = new FlipLabelAnimation();
 			animation.flip(this);
 		} catch (IOException e) {
-			System.out.println("couldnt flip animation at label_clickable");
+			System.out.println("couldn't flip animation at label_clickable");
 		}
 	}
 	protected void paintComponent(Graphics g) {
@@ -84,9 +83,7 @@ public class Label_Clickable extends JLabel implements MouseListener{
 	public int getCardIdentifierNumber() {
 		return cardIdentifierNumber;
 	}
-	public void setCardIdentifierNumber(int cardIdentifierNumber) {
-		this.cardIdentifierNumber = cardIdentifierNumber;
-	}	
+
 	public void setCurrentImage(Image image) {
 		this.displayedImage = image;
 	}

@@ -1,22 +1,19 @@
 package lotr.DataConstructs;
 
-import javax.swing.ImageIcon;
-
 public class Card {
-		
-	
-	private String pathToCover;
+
+	private final String pathToCover;
 	private int[] skillCost = new int[] {0,0,0,0,0}; 	//black, blue, red, purple, green
-	private String pathToPicture;
+	private final String pathToPicture;
 	private String hasChainingSymbol;
 	private String usesThisChainingSymbol;
-	private int coinCost;
-	private String color;
-	private int effectCount;
-	private String additionalInfo;
+	private final int coinCost;
+	private final String color;
+	private final int effectCount;
+	private final String additionalInfo;
 	private int discardCost;
 	
-	// additional info meanings in regards to card color
+	// additional info meanings in regard to card color
 	// purple - 0 move, 1 unit, 2 coin
 	// red - realms to choose from
 	// green - 0 elves, 1 dwarves, 2 hobbits, 3 men, 4 ents, 5 wizards

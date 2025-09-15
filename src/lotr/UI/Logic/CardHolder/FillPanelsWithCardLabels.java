@@ -15,7 +15,7 @@ import lotr.UI.inGame.Panel_CardHolder;
 public class FillPanelsWithCardLabels {
 
 	public static void fill(ArrayList<Card> cards, ArrayList<Panel_CardHolder> cardHolderPanels, int chapter, int[] cardCountInRowByChapter) {
-		CardHolderLogic.setListOfLabels(new ArrayList<Label_Clickable>());
+		CardHolderLogic.setListOfLabels(new ArrayList<>());
 		boolean cover = false; 	
 		int cardIdentifierNumber = 1;
 		
@@ -37,13 +37,14 @@ public class FillPanelsWithCardLabels {
 		        for (int cardCount = 0; cardCount < numCardsInRow; cardCount++) {	
 		        	Label_Clickable label;
 					try {
-						label = new Label_Clickable(cards.get(0), cover,cardIdentifierNumber);
+						label = new Label_Clickable(cards.getFirst(), cover,cardIdentifierNumber);
 						labelsContainer.add(label);
-			        	cards.remove(0);	
+			        	cards.removeFirst();
 			            CardHolderLogic.getListOfLabels().add(label);
 			            cardIdentifierNumber++;
 					} catch (IOException e) {
-						System.out.println("IOException at FILL");
+						System.out.println(e.getMessage());
+                        e.printStackTrace();
 					} 	        	
 		        }
 
