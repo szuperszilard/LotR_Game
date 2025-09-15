@@ -15,8 +15,8 @@ public class DB_Handler {
 
 	private static Connection con;
 	private static PreparedStatement ps;
-	private String username = System.getenv("MYSQL_USERNAME");
-	private String password = System.getenv("MYSQL_PASSWORD");
+	private final String username = System.getenv("MYSQL_USERNAME");
+	private final String password = System.getenv("MYSQL_PASSWORD");
 	
 	public DB_Handler(){
 		
