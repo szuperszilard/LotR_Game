@@ -26,7 +26,7 @@ public class DB_Handler {
 		
 		try {
 			String connectionURL = "jdbc:mysql://localhost:3307/lotrdb";
-			con = DriverManager.getConnection(connectionURL, "szabszil95", "egerfogo95");
+			con = DriverManager.getConnection(connectionURL, username, password);
 		}catch(Exception e) {			
 			throw new SQLException("Couldn't connect to server. " + e.getMessage());
 		}
