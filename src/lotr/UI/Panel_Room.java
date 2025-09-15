@@ -23,7 +23,7 @@ public class Panel_Room extends JPanel{
 		
 	public Panel_Room() throws IOException {
 				
-		backgroundImage = ImageIO.read(new File("D:\\Eclipse\\LotRGame\\data\\roomsContainer_big.png"));	
+		backgroundImage = ImageIO.read(new File("data\\roomsContainer_big.png"));	
 		setBounds(486,94,1360,820);
 		setLayout(null);
 		

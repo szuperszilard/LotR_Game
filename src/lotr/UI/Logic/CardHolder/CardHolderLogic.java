@@ -19,8 +19,8 @@ public class CardHolderLogic {
 	public static void fillCardHolders(ArrayList<Card> cards, ArrayList<Panel_CardHolder> cardHolderPanels, int chapter) throws IOException {
 	
 		listOfCardsAsIntegers = new ArrayList<>(List.of(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20));
-		Label_Clickable_OverlapCheck.setMapOfOverlapDependencies(Label_Clickable_OverlapCheck.readMapOfDependenciesFromFile("D:\\Eclipse\\LotRGame\\chapter" + chapter + "Overlap.txt"));
-		Label_Clickable_FlipShouldOccurChecker.setMapOfFlipDependencies(Label_Clickable_OverlapCheck.readMapOfDependenciesFromFile("D:\\Eclipse\\LotRGame\\chapter" + chapter + "Flip.txt"));
+		Label_Clickable_OverlapCheck.setMapOfOverlapDependencies(Label_Clickable_OverlapCheck.readMapOfDependenciesFromFile("chapter" + chapter + "Overlap.txt"));
+		Label_Clickable_FlipShouldOccurChecker.setMapOfFlipDependencies(Label_Clickable_OverlapCheck.readMapOfDependenciesFromFile("chapter" + chapter + "Flip.txt"));
 		
 		int[] cardCountInRowByChapter = CardCountInRowArray.getCardCountInRowArray(chapter); 
 		

@@ -37,7 +37,7 @@ public class Panel_Login extends JPanel{
 
 	public Panel_Login(JFrame frame, LotR parent) throws IOException {
 		
-		backgroundImage = ImageIO.read(new File("D:\\Eclipse\\LotRGame\\data\\loginContainer.png"));	
+		backgroundImage = ImageIO.read(new File("data\\loginContainer.png"));	
 		setBounds(673,374,600,400);
 		setLayout(null);
 		setOpaque(false);
@@ -61,9 +61,9 @@ public class Panel_Login extends JPanel{
 		
 		
 		JButton btnConnect = new Button_WithIcon(
-				"D:\\Eclipse\\LotRGame\\data\\btnConnect.png", 
-				"D:\\Eclipse\\LotRGame\\data\\btnConnectPress.png", 
-				"D:\\Eclipse\\LotRGame\\data\\btnConnectHover.png", 
+				"data\\btnConnect.png", 
+				"data\\btnConnectPress.png", 
+				"data\\btnConnectHover.png", 
 				0.3, 125, 275, 260);
 		btnConnect.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {				
@@ -93,9 +93,9 @@ public class Panel_Login extends JPanel{
 		
 		
 		JButton btnCancel = new Button_WithIcon(
-				"D:\\Eclipse\\LotRGame\\data\\btnCancel.png", 
-				"D:\\Eclipse\\LotRGame\\data\\btnCancelPress.png", 
-				"D:\\Eclipse\\LotRGame\\data\\btnCancelHover.png",
+				"data\\btnCancel.png", 
+				"data\\btnCancelPress.png", 
+				"data\\btnCancelHover.png",
 				0.3, 125, 420, 260);
 		btnCancel.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {						
@@ -106,9 +106,9 @@ public class Panel_Login extends JPanel{
 		
 		
 		JButton btnRegister = new Button_WithIcon(
-				"D:\\Eclipse\\LotRGame\\data\\btnReg.png", 
-				"D:\\Eclipse\\LotRGame\\data\\btnReg_press.png",
-				"D:\\Eclipse\\LotRGame\\data\\btnReg_hover.png",
+				"data\\btnReg.png", 
+				"data\\btnReg_press.png",
+				"data\\btnReg_hover.png",
 				0.21, 220, 50, 315);
 		btnRegister.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {		
@@ -135,7 +135,7 @@ public class Panel_Login extends JPanel{
 		
 		JLabel lblUsername = new JLabel("");
 		lblUsername.setBounds(220, 118, 320, 46);
-		ImageIcon txtPNG = imageScaler("D:\\Eclipse\\LotRGame\\data\\textfieldmaybe.png", 320, 46);
+		ImageIcon txtPNG = imageScaler("data\\textfieldmaybe.png", 320, 46);
 		lblUsername.setIcon(txtPNG);
 		add(lblUsername);
 		

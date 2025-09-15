@@ -17,8 +17,8 @@ import lotr.Logic.network.DB_Handler;
 
 public class Frame_MainWindow extends JFrame{
 
-	private JPanel mmPanel;
-	private String ME = "D:\\Eclipse\\LotRGame\\data\\wp.jpg";
+	private final JPanel mmPanel;
+	private final String ME = "data\\wp.jpg";
 	private BufferedImage backgroundImage = ImageIO.read(new File(ME));
 	
 	public static int frameWidth;
@@ -30,7 +30,7 @@ public class Frame_MainWindow extends JFrame{
 
 	public Frame_MainWindow(DB_Handler dbHandler) throws IOException {
 		
-		ImageIcon iconOfWindow = new ImageIcon("D:\\Eclipse\\LotRGame\\data\\icon.png");
+		ImageIcon iconOfWindow = new ImageIcon("data\\icon.png");
 		GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
 	    Rectangle usableScreenArea = ge.getMaximumWindowBounds();
 	    

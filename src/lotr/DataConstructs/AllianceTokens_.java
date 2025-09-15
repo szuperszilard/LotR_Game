@@ -8,7 +8,7 @@ import lotr.Logic.AllianceTokenLogic;
 public class AllianceTokens_ {
 
 	private ArrayList<String> tokens;
-	private static ArrayList<AllianceToken> tokens_All = AllianceTokenLogic.readTokens("D:\\Eclipse\\LotRGame\\LotRpics\\Done\\allianceTokens\\tokens.csv");
+	private static ArrayList<AllianceToken> tokens_All = AllianceTokenLogic.readTokens("LotRpics\\Done\\allianceTokens\\tokens.csv");
 	
 	public AllianceTokens_() {
 		tokens = new ArrayList<>();

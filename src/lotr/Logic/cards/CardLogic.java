@@ -98,13 +98,13 @@ public class CardLogic {
 				String coverString = "";
 				int discardCost = 0;
 				if(fileName.contains("cards1")) {
-					coverString = "D:\\Eclipse\\LotRGame\\LotRpics\\Done\\Cover\\cover1.png";
+					coverString = "LotRpics\\Done\\Cover\\cover1.png";
 					discardCost = 1;
 				}else if(fileName.contains("cards2")) {
-					coverString = "D:\\Eclipse\\LotRGame\\LotRpics\\Done\\Cover\\cover2.png";
+					coverString = "LotRpics\\Done\\Cover\\cover2.png";
 					discardCost = 2;
 				}else if(fileName.contains("cards3")) {
-					coverString = "D:\\Eclipse\\LotRGame\\LotRpics\\Done\\Cover\\cover3.png";
+					coverString = "LotRpics\\Done\\Cover\\cover3.png";
 					discardCost = 3;
 				}
 			

@@ -23,9 +23,9 @@ public class Game {
 		map = new Map();
 		Sauron = new Player(false);
 		FotR = new Player(true);
-		cardsOne = CardLogic.stackToUse("D:\\Eclipse\\LotRGame\\LotRpics\\Done\\cards1\\cards1.csv");
-		cardsTwo =  CardLogic.stackToUse("D:\\Eclipse\\LotRGame\\LotRpics\\Done\\cards2\\cards2.csv");
-		cardsThree =  CardLogic.stackToUse("D:\\Eclipse\\LotRGame\\LotRpics\\Done\\cards3\\cards3.csv");	
+		cardsOne = CardLogic.stackToUse("LotRpics\\Done\\cards1\\cards1.csv");
+		cardsTwo =  CardLogic.stackToUse("LotRpics\\Done\\cards2\\cards2.csv");
+		cardsThree =  CardLogic.stackToUse("LotRpics\\Done\\cards3\\cards3.csv");	
 		discard = new ArrayList<>();
 	}
 

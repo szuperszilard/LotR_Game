@@ -34,7 +34,7 @@ public class Panel_Fading extends JPanel{
 					fader = 255;
 					timer.stop();
 					comms.somethingHappened("gamePanel");
-					((Frame_MainWindow)frame).changeME("D:\\Eclipse\\LotRGame\\data\\wp2.png");
+					((Frame_MainWindow)frame).changeME("data\\wp2.png");
 					startUnfade();
 				}
 				if(fader < 0) {

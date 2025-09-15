@@ -26,9 +26,9 @@ public class Panel_MenuContainer extends JPanel{
 		setVisible(true);
 		
 		playButton = new Button_WithIcon(
-        		"D:\\Eclipse\\LotRGame\\data\\play1.png",
-        		"D:\\Eclipse\\LotRGame\\data\\play3.png", 
-        		"D:\\Eclipse\\LotRGame\\data\\play2.png",
+        		"data\\play1.png",
+        		"data\\play3.png", 
+        		"data\\play2.png",
         		0.34, 300, 0, 70);
         
         playButton.addActionListener(new ActionListener() {
@@ -43,9 +43,9 @@ public class Panel_MenuContainer extends JPanel{
         });
         
        statsButton = new Button_WithIcon(
-        		"D:\\Eclipse\\LotRGame\\data\\stats1.png",
-        		"D:\\Eclipse\\LotRGame\\data\\stats3.png", 
-        		"D:\\Eclipse\\LotRGame\\data\\stats2.png",
+        		"data\\stats1.png",
+        		"data\\stats3.png", 
+        		"data\\stats2.png",
         		0.34, 300, 0,200);
         
         statsButton.addActionListener(new ActionListener() {
@@ -55,9 +55,9 @@ public class Panel_MenuContainer extends JPanel{
         });
         
        exitButton = new Button_WithIcon(
-        		"D:\\Eclipse\\LotRGame\\data\\exit1.png",
-        		"D:\\Eclipse\\LotRGame\\data\\exit3.png", 
-        		"D:\\Eclipse\\LotRGame\\data\\exit2.png",
+        		"data\\exit1.png",
+        		"data\\exit3.png", 
+        		"data\\exit2.png",
         		0.34, 300, 0, 330);
         
         exitButton.addActionListener(new ActionListener() {
@@ -67,9 +67,9 @@ public class Panel_MenuContainer extends JPanel{
         });
         
         backButton = new Button_WithIcon(
-        		"D:\\Eclipse\\LotRGame\\data\\back1.png",
-        		"D:\\Eclipse\\LotRGame\\data\\back3.png", 
-        		"D:\\Eclipse\\LotRGame\\data\\back2.png",
+        		"data\\back1.png",
+        		"data\\back3.png", 
+        		"data\\back2.png",
         		0.34, 300, 0, 330);
         
         backButton.addActionListener(new ActionListener() {

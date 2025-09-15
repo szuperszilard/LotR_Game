@@ -25,7 +25,7 @@ import java.sql.SQLException;
 public class LotR {
 
 	private Frame_MainWindow frame;
-	private DB_Handler dbHandler = new DB_Handler();
+	private final DB_Handler dbHandler = new DB_Handler();
 	
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -129,7 +129,7 @@ public class LotR {
 					}					
 				}
 			});
-	        fadingPanel.setICommunication(new ICommunication() {				
+	        fadingPanel.setICommunication(new ICommunication() {
 				@Override
 				public void somethingHappened(String message) {					
 					if(message.equals("gamePanel")) {
